@@ -10,10 +10,40 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+   public function index()
     {
-        //
+
+      $posts = Post::all();
+    //     $posts = [
+    //         [
+    //         'user' => 'DJ Niaja',
+    //         'username' => '@djniaja',
+    //         'platform' => 'Spotify',
+    //         'content' => 'New Afrobeat mix just dropped! 🔥🎶 Go stream and vibe.',
+    //         'created_at' => '2025-02-10 14:30:00'
+    //     ],
+    //     [
+    //         'user' => 'Djknas Lion Blue',
+    //         'username' => '@djknas',
+    //         'platform' => 'Youtube Music',
+    //         'content' => 'Best of 2face Idibia',
+    //         'created_at' => '2025-11-09 19:16:00'
+    //     ],
+    //     [
+    //         'user' => 'Exclusive',
+    //         'username' => '@djniaja',
+    //         'platform' => 'Spotify',
+    //         'content' => 'Naija Throwback bangers jaming! 🔥🎶 ',
+    //         'created_at' => '2025-02-12 04:18:00'
+    //     ],
+    
+    
+    // ];
+
+        return view('home', ['posts' => $posts]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
