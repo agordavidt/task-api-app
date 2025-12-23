@@ -9,4 +9,6 @@ use App\Http\Controllers\PostController;
 
 
 
-Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])->name('home');
+
+Route::post('/posts', [PostController::class, 'store'])->name('post.store');

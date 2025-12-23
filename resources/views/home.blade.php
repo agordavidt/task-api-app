@@ -6,6 +6,28 @@
 <div class="row justify-content-center">
     <div class="col-md-7">
 
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+
+                <form method="POST" action="{{ route('post.store') }}">
+                    @csrf
+
+                    <div class="mb-2">
+                        <input type="text" name="title" class="form-control" placeholder="Post title" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea name="content" rows="3" class="form-control" placeholder="What's on your mind?" required ></textarea>
+                    </div>
+
+                    <div class="text-end">
+                        <button class="btn btn-primary">Post</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
        @foreach($posts as $post)
         <div class="card shadow-sm mb-4">
             <div class="card-body">
@@ -44,6 +66,8 @@
                     <span>💬 Comment</span>
                     <span>↪️ Share</span>
                 </div>
+
+                
 
             </div>
         </div>
