@@ -46,3 +46,66 @@ class TaskApiTest extends TestCase {
 Watch the Network Tab: Press F12 in your browser and go to the Network tab. You can see the actual JSON data flying back and forth!
 Break it on purpose: Change a route name and see the 404 error. Remove a required field and see the 422 validation error.
 Route List: Always use php artisan route:list if you get confused about your URL
+
+
+
+
+### PHP Tinker
+Reading Data from the Database
+➤ Get all users
+php
+Copy code
+>>> User::all();
+➤ Get first user
+php
+Copy code
+>>> User::first();
+➤ Find by ID
+php
+Copy code
+>>> User::find(1);
+➤ Count records
+php
+Copy code
+>>> User::count();
+8️⃣ Creating Records Using Tinker
+➤ Create a user (Mass Assignment)
+php
+Copy code
+>>> User::create([
+... 'name' => 'Jane Doe',
+... 'email' => 'jane@example.com',
+... 'password' => bcrypt('password')
+... ]);
+⚠️ Make sure your model has $fillable set.
+
+9️⃣ Updating Records
+➤ Update a user
+php
+Copy code
+>>> $user = User::find(1);
+>>> $user->name = 'Updated Name';
+>>> $user->save();
+➤ Or update directly
+php
+Copy code
+>>> User::where('id', 1)->update(['name' => 'New Name']);
+🔟 Deleting Records
+➤ Delete one record
+php
+Copy code
+>>> $user = User::find(1);
+>>> $user->delete();
+➤ Delete multiple
+php
+Copy code
+>>> User::where('active', false)->delete();
+1️⃣1️⃣ Using Eloquent Queries
+➤ Where clauses
+php
+Copy code
+>>> User::where('email', 'like', '%gmail.com')->get();
+➤ Order & limit
+php
+Copy code
+>>> User::orderBy('id', 'desc')->take(5)->get();
